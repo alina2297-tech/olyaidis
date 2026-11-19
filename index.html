@@ -22,6 +22,60 @@
   <body>
     <main class="hero">
       <div class="hero__frame">
+        <header class="header">
+          <a class="header__brand" href="#">DJ OLYAIDIS</a>
+
+          <nav class="header__nav" aria-label="Основное меню">
+            <ul class="header__menu">
+              <li><a class="header__link" href="#about">ОБО МНЕ</a></li>
+              <li><a class="header__link" href="#services">УСЛУГИ</a></li>
+              <li><a class="header__link" href="#equipment">ОБОРУДОВАНИЕ</a></li>
+              <li><a class="header__link" href="#gallery">ГАЛЕРЕЯ</a></li>
+              <li><a class="header__link" href="#contacts">КОНТАКТЫ</a></li>
+            </ul>
+          </nav>
+
+          <button
+            class="header__burger"
+            type="button"
+            aria-label="Меню"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+            <img class="header__close" src="/images/menu-close.svg" alt="" />
+          </button>
+        </header>
+
+        <div class="mobile-menu" id="mobile-menu">
+          <nav class="mobile-menu__nav" aria-label="Мобильное меню">
+            <ul class="mobile-menu__list">
+              <li><a class="mobile-menu__link" href="#about">ОБО МНЕ</a></li>
+              <li><a class="mobile-menu__link" href="#services">УСЛУГИ</a></li>
+              <li>
+                <a class="mobile-menu__link" href="#equipment">ОБОРУДОВАНИЕ</a>
+              </li>
+              <li><a class="mobile-menu__link" href="#gallery">ГАЛЕРЕЯ</a></li>
+              <li><a class="mobile-menu__link" href="#contacts">КОНТАКТЫ</a></li>
+            </ul>
+          </nav>
+
+          <div class="mobile-menu__foot">
+            <div class="hero__actions mobile-menu__actions">
+              <a class="hero__btn hero__btn--solid" href="#contacts">
+                <span class="hero__btn-label">ЗАКАЗАТЬ DJ</span>
+                <img class="hero__arrow" src="/images/arrow-solid.svg" alt="" />
+              </a>
+              <a class="hero__btn hero__btn--line" href="#equipment">
+                <span class="hero__btn-label">АРЕНДОВАТЬ ОБОРУДОВАНИЕ</span>
+                <img class="hero__arrow" src="/images/arrow-line.svg" alt="" />
+              </a>
+            </div>
+          </div>
+        </div>
+
         <div class="hero__visual">
           <img
             class="hero__photo"
@@ -54,9 +108,28 @@
             </ul>
 
             <p class="hero__note">
-              Сайт находится в разработке...<br />
-              Скоро здесь появится актуальная информация
+              Музыка, которая заставляет<br />
+              двигаться
             </p>
+
+            <div class="hero__actions">
+              <a class="hero__btn hero__btn--solid" href="#contacts">
+                <span class="hero__btn-label">ЗАКАЗАТЬ DJ</span>
+                <img
+                  class="hero__arrow"
+                  src="/images/arrow-solid.svg"
+                  alt=""
+                />
+              </a>
+              <a class="hero__btn hero__btn--line" href="#equipment">
+                <span class="hero__btn-label">АРЕНДОВАТЬ ОБОРУДОВАНИЕ</span>
+                <img
+                  class="hero__arrow"
+                  src="/images/arrow-line.svg"
+                  alt=""
+                />
+              </a>
+            </div>
           </div>
 
           <ul class="crumbs">
