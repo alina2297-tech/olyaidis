@@ -1,6 +1,8 @@
 const burger = document.querySelector(".header__burger");
 const menu = document.querySelector(".mobile-menu");
-const covered = document.querySelectorAll(".hero__visual, .hero__panel, .about, .catalog");
+const covered = document.querySelectorAll(
+  ".hero__visual, .hero__panel, .about, .catalog, .equipment",
+);
 const desktop = window.matchMedia("(min-width: 801px)");
 
 const setMenuOpen = (open) => {
