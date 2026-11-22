@@ -1,6 +1,6 @@
 const burger = document.querySelector(".header__burger");
 const menu = document.querySelector(".mobile-menu");
-const covered = document.querySelectorAll(".hero__visual, .hero__panel, .about");
+const covered = document.querySelectorAll(".hero__visual, .hero__panel, .about, .catalog");
 const desktop = window.matchMedia("(min-width: 801px)");
 
 const setMenuOpen = (open) => {
@@ -51,4 +51,19 @@ document.querySelectorAll(".header__link, .mobile-menu__link, .header__brand").f
     const url = hash === "#" ? `${location.pathname}${location.search}` : hash;
     history.pushState(null, "", url);
   });
+});
+
+const stage = document.querySelector(".catalog__stage");
+const play = document.querySelector(".catalog__play");
+const video = document.querySelector(".catalog__video");
+
+play.addEventListener("click", async () => {
+  stage.classList.add("is-playing");
+  video.controls = true;
+  try {
+    await video.play();
+  } catch {
+    stage.classList.remove("is-playing");
+    video.controls = false;
+  }
 });

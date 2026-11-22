@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400&family=Cormorant+Garamond:ital,wght@1,500&family=Inter:wght@300;400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400&family=Cormorant+Garamond:ital,wght@1,500&family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/src/style.css">
@@ -145,7 +145,7 @@
       </section>
 
       <section class="about" id="about" aria-label="Обо мне">
-        <div class="about__frame">
+        <div class="about__frame frame">
           <img
             class="about__photo"
             src="/images/about-portrait.jpg"
@@ -176,6 +176,71 @@
               <span class="hero__btn-label">СВЯЗАТЬСЯ СО МНОЙ</span>
               <img class="hero__arrow" src="/images/arrow-line.svg" alt="" />
             </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="catalog" id="services" aria-labelledby="catalog-title">
+        <div class="catalog__frame frame">
+          <div class="catalog__kicker">
+            <img class="catalog__ornament ornament" src="/images/decor-line.svg" alt="" />
+            <p class="catalog__label">УСЛУГИ</p>
+          </div>
+
+          <div class="catalog__main">
+            <div class="catalog__copy">
+              <h2 class="catalog__title" id="catalog-title">DJ OLYAIDIS</h2>
+              <p class="catalog__lead">
+                Профессиональное музыкальное сопровождение<br />
+                и аренда оборудования для вашего мероприятия
+              </p>
+              <ul class="catalog__list">
+                <li class="catalog__item">
+                  <div>
+                    <p class="catalog__name">DJ на мероприятие</p>
+                    <p class="catalog__note">3 часа, оборудование не включено</p>
+                  </div>
+                  <p class="catalog__price">от 15 000 ₽</p>
+                </li>
+                <li class="catalog__item">
+                  <div>
+                    <p class="catalog__name">DJ на мероприятие под ключ</p>
+                    <p class="catalog__note">3 часа, оборудование включено</p>
+                  </div>
+                  <p class="catalog__price">от 25 000 ₽</p>
+                </li>
+                <li class="catalog__item">
+                  <div>
+                    <p class="catalog__name">Продление</p>
+                    <p class="catalog__note">1 час</p>
+                  </div>
+                  <p class="catalog__price">от 6 000 ₽</p>
+                </li>
+                <li class="catalog__item">
+                  <div>
+                    <p class="catalog__name">DJ + ведущий под ключ</p>
+                    <p class="catalog__note">5 часов</p>
+                  </div>
+                  <p class="catalog__price">от 100 000 ₽</p>
+                </li>
+              </ul>
+            </div>
+
+            <div class="catalog__stage">
+              <div class="catalog__shot">
+                <img src="/images/hero.jpg" alt="" />
+              </div>
+              <div class="catalog__shade"></div>
+              <button class="catalog__play" type="button" aria-label="Смотреть видео">
+                <img src="/images/play.svg" alt="" />
+              </button>
+              <video
+                class="catalog__video"
+                src="/video/olyaidis.mp4"
+                playsinline
+                preload="none"
+              ></video>
+            </div>
           </div>
         </div>
       </section>
