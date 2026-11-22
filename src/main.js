@@ -1,6 +1,6 @@
 const burger = document.querySelector(".header__burger");
 const menu = document.querySelector(".mobile-menu");
-const covered = document.querySelectorAll(".hero__visual, .hero__panel");
+const covered = document.querySelectorAll(".hero__visual, .hero__panel, .about");
 const desktop = window.matchMedia("(min-width: 801px)");
 
 const setMenuOpen = (open) => {
@@ -29,4 +29,26 @@ document.addEventListener("keydown", (event) => {
 
 desktop.addEventListener("change", (event) => {
   if (event.matches) setMenuOpen(false);
+});
+
+const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+document.querySelectorAll(".header__link, .mobile-menu__link, .header__brand").forEach((link) => {
+  link.addEventListener("click", (event) => {
+    const hash = link.getAttribute("href");
+    if (!hash?.startsWith("#")) return;
+
+    const target = hash === "#" ? null : document.querySelector(hash);
+    if (hash !== "#" && !target) return;
+
+    event.preventDefault();
+    if (document.body.classList.contains("is-menu-open")) setMenuOpen(false);
+
+    const behavior = motionQuery.matches ? "auto" : "smooth";
+    if (target) target.scrollIntoView({ behavior, block: "start" });
+    else window.scrollTo({ top: 0, behavior });
+
+    const url = hash === "#" ? `${location.pathname}${location.search}` : hash;
+    history.pushState(null, "", url);
+  });
 });
