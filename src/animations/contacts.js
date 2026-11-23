@@ -39,26 +39,6 @@ export function initContacts(epoch) {
   sequence.forEach((element, index) => {
     tl.to(element, { opacity: 1, y: 0, duration: 0.75 }, index * 0.14);
   });
-
-  initPhoto();
-}
-
-function initPhoto() {
-  const frame = document.querySelector(".contacts__photo");
-  photo = frame?.querySelector("img") ?? null;
-  if (!frame || !photo) return;
-
-  window.gsap.set(frame, { clipPath: "inset(0 0 0 100%)" });
-  window.gsap.set(photo, { opacity: 0, scale: 1.06, transformOrigin: "center center" });
-
-  const tl = window.gsap.timeline({
-    delay: window.matchMedia("(min-width: 801px)").matches ? 0.95 : 0,
-    scrollTrigger: { trigger: frame, start: "top 82%", once: true },
-    onComplete: settlePhoto,
-  });
-
-  tl.to(frame, { clipPath: "inset(0 0 0 0)", duration: 1.05, ease: ANIM.ease }, 0);
-  tl.to(photo, { opacity: 1, scale: 1, duration: 1.05, ease: ANIM.ease }, 0);
 }
 
 function settlePhoto() {
