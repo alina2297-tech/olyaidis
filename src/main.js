@@ -1,7 +1,7 @@
 const burger = document.querySelector(".header__burger");
 const menu = document.querySelector(".mobile-menu");
 const covered = document.querySelectorAll(
-  ".hero__visual, .hero__panel, .about, .catalog, .equipment, .gallery, .contacts",
+  ".hero__visual, .hero__panel, .about, .catalog, .equipment, .gallery, .contacts, .footer",
 );
 const desktop = window.matchMedia("(min-width: 801px)");
 
@@ -35,7 +35,7 @@ desktop.addEventListener("change", (event) => {
 
 const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-document.querySelectorAll(".header__link, .mobile-menu__link, .header__brand").forEach((link) => {
+document.querySelectorAll(".header__link, .mobile-menu__link, .header__brand, .footer__brand, .footer__link").forEach((link) => {
   link.addEventListener("click", (event) => {
     const hash = link.getAttribute("href");
     if (!hash?.startsWith("#")) return;
