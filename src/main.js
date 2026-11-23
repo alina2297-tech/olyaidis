@@ -59,6 +59,26 @@ const stage = document.querySelector(".catalog__stage");
 const play = document.querySelector(".catalog__play");
 const video = document.querySelector(".catalog__video");
 
+const toTop = document.querySelector(".to-top");
+const secondBlock = document.querySelector("#about");
+
+const updateToTop = () => {
+  const reached = secondBlock.getBoundingClientRect().top <= window.innerHeight * 0.85;
+  toTop.classList.toggle("is-visible", reached);
+};
+
+updateToTop();
+window.addEventListener("scroll", updateToTop, { passive: true });
+window.addEventListener("resize", updateToTop);
+
+toTop.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: motionQuery.matches ? "auto" : "smooth",
+  });
+  history.pushState(null, "", `${location.pathname}${location.search}`);
+});
+
 play.addEventListener("click", async () => {
   stage.classList.add("is-playing");
   video.controls = true;
