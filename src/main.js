@@ -1,3 +1,5 @@
+import { initAnimations } from "./animations/index.js";
+
 const burger = document.querySelector(".header__burger");
 const menu = document.querySelector(".mobile-menu");
 const covered = document.querySelectorAll(
@@ -78,6 +80,8 @@ toTop.addEventListener("click", () => {
   });
   history.pushState(null, "", `${location.pathname}${location.search}`);
 });
+
+initAnimations();
 
 play.addEventListener("click", async () => {
   stage.classList.add("is-playing");

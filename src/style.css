@@ -541,7 +541,7 @@ h1 {
   width: 100%;
   aspect-ratio: 408 / 546;
   overflow: hidden;
-  border: 1px solid rgb(242 237 236 / 0.3);
+  /* border: 1px solid rgb(242 237 236 / 0.3); */
   border-radius: 12px;
   background: #000;
 }
@@ -757,6 +757,9 @@ h1 {
   text-decoration: none;
   text-transform: uppercase;
   white-space: nowrap;
+  transition:
+    border-color 0.35s ease,
+    color 0.35s ease;
 }
 
 .equipment__book span:first-child {
@@ -795,8 +798,8 @@ h1 {
 
 .gallery__frame {
   margin-inline: auto;
-  padding-top: 3.75rem;
-  padding-bottom: 6.25rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 
 .gallery__grid {
@@ -864,11 +867,13 @@ h1 {
 .gallery__shot--hands img {
   top: -91.52%;
   height: 236.23%;
+  transform-origin: center 60%;
 }
 
 .gallery__shot--profile img {
   top: -71.2%;
   height: 209.23%;
+  transform-origin: center 58%;
 }
 
 .contacts {
@@ -920,7 +925,7 @@ h1 {
 .contacts__title {
   color: var(--title);
   font-family: var(--display);
-  font-size: clamp(2.5rem, 6.25vw, 5.625rem);
+  font-size: clamp(2.75rem, 5.73vw, 6.875rem);
   font-weight: 400;
   line-height: 1;
   letter-spacing: 0.08em;
@@ -1013,35 +1018,12 @@ h1 {
   line-height: 2rem;
 }
 
-.contacts__write {
-  display: inline-flex;
-  align-items: center;
-  gap: 1.5rem;
-  height: 50px;
-  padding: 0 1.5rem;
-  border-radius: 2px;
-  background: #fff;
-  color: var(--ink);
-  font-size: 1.125rem;
-  font-weight: 400;
-  line-height: 1.125rem;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.contacts__write span:last-child {
-  font-size: 1.375rem;
-  line-height: 1.875rem;
-}
-
-.contacts__write:hover,
-.contacts__write:focus-visible {
-  background: var(--title);
-}
-
-.contacts__write:focus-visible {
-  outline: 1px solid var(--title);
-  outline-offset: 4px;
+.hero__btn.contacts__write {
+  width: max-content;
+  justify-content: flex-start;
+  gap: 8px;
+  font-size: 16px;
+  line-height: 1;
 }
 
 .contacts__photo {
@@ -1189,12 +1171,96 @@ body.is-menu-open .to-top {
   pointer-events: none;
 }
 
+html.is-motion .hero__visual,
+html.is-motion .header,
+html.is-motion .hero__heading h1,
+html.is-motion .hero__ornament,
+html.is-motion .hero__panel .services,
+html.is-motion .hero__note,
+html.is-motion .hero__panel .hero__actions,
+html.is-motion .hero__panel .crumbs,
+html.is-motion .about__photo,
+html.is-motion .about__ornament,
+html.is-motion .about__facts li,
+html.is-motion .about__genres li,
+html.is-motion .about__btn,
+html.is-motion .catalog__ornament,
+html.is-motion .catalog__label,
+html.is-motion .catalog__title,
+html.is-motion .catalog__lead,
+html.is-motion .catalog__item,
+html.is-motion .catalog__shot,
+html.is-motion .catalog__play,
+html.is-motion .equipment__ornament,
+html.is-motion .equipment__label,
+html.is-motion .equipment__lead,
+html.is-motion .equipment__kit,
+html.is-motion .equipment__included p,
+html.is-motion .equipment__included li,
+html.is-motion .gallery__shot img,
+html.is-motion .contacts__ornament,
+html.is-motion .contacts__label,
+html.is-motion .contacts__title,
+html.is-motion .contacts__lead,
+html.is-motion .contacts__item,
+html.is-motion .contacts__telegram,
+html.is-motion .contacts__write,
+html.is-motion .contacts__photo,
+html.is-motion .footer__brand,
+html.is-motion .footer__row {
+  opacity: 0;
+}
+
+@media (hover: hover) and (min-width: 801px) and (prefers-reduced-motion: no-preference) {
+  .catalog__stage.is-settled .catalog__shot {
+    transition:
+      transform 0.55s ease,
+      opacity 0.55s ease;
+  }
+
+  .catalog__stage.is-settled:hover .catalog__shot,
+  .catalog__stage.is-settled:focus-within .catalog__shot {
+    transform: scale(1.04);
+    opacity: 0.92;
+  }
+
+  .equipment.is-settled .equipment__kit {
+    transition: transform 0.45s ease;
+  }
+
+  .equipment.is-settled .equipment__photo {
+    transition: transform 0.6s ease;
+  }
+
+  .equipment.is-settled .equipment__kit:hover,
+  .equipment.is-settled .equipment__kit:focus-within {
+    transform: translateY(-4px);
+  }
+
+  .equipment.is-settled .equipment__kit:hover .equipment__photo,
+  .equipment.is-settled .equipment__kit:focus-within .equipment__photo {
+    transform: scale(1.05);
+  }
+
+  .gallery.is-settled .gallery__shot img {
+    transition:
+      transform 0.6s ease,
+      opacity 0.6s ease;
+  }
+
+  .gallery.is-settled .gallery__shot:hover img {
+    transform: scale(1.04);
+    opacity: 0.92;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .header__link::after,
   .hero__btn::before,
   .hero__btn-label,
   .hero__arrow,
   .catalog__play,
+  .equipment__book,
   .to-top {
     transition: none;
   }

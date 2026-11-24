@@ -17,6 +17,17 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/src/style.css">
+    <script>
+      (function () {
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        document.documentElement.classList.add("is-motion");
+        window.setTimeout(function () {
+          if (!document.documentElement.classList.contains("is-animated")) {
+            document.documentElement.classList.remove("is-motion");
+          }
+        }, 4000);
+      })();
+    </script>
     <base href="/./">
   </head>
   <body>
@@ -80,7 +91,7 @@
         <div class="hero__visual">
           <img
             class="hero__photo"
-            src="/images/hero.jpg"
+            src="/images/hero.webp"
             alt="DJ Olyaidis за диджейским пультом"
           />
           <img class="hero__fade" src="/images/hero-fade.png" alt="" />
@@ -148,7 +159,7 @@
         <div class="about__frame frame">
           <img
             class="about__photo"
-            src="/images/about-portrait.jpg"
+            src="/images/about-portrait.webp"
             alt="DJ Olyaidis в наушниках и солнцезащитных очках"
           />
 
@@ -228,7 +239,7 @@
 
             <div class="catalog__stage">
               <div class="catalog__shot">
-                <img src="/images/hero.jpg" alt="" />
+                <img src="/images/hero.webp" alt="" />
               </div>
               <div class="catalog__shade"></div>
               <button class="catalog__play" type="button" aria-label="Смотреть видео">
@@ -260,7 +271,7 @@
             <li class="equipment__kit">
               <img
                 class="equipment__photo"
-                src="/images/kit-1.png"
+                src="/images/kit-1.webp"
                 alt="Две колонки Behringer на стойках и микшерный пульт"
               />
               <div class="equipment__body equipment__body--roomy">
@@ -282,7 +293,7 @@
             <li class="equipment__kit">
               <img
                 class="equipment__photo"
-                src="/images/kit-2.png"
+                src="/images/kit-2.webp"
                 alt="Две колонки, сабвуфер и микшерный пульт Behringer"
               />
               <div class="equipment__body">
@@ -304,7 +315,7 @@
             <li class="equipment__kit">
               <img
                 class="equipment__photo"
-                src="/images/kit-3.png"
+                src="/images/kit-3.webp"
                 alt="Две колонки, два сабвуфера и микшерный пульт Behringer"
               />
               <div class="equipment__body">
@@ -343,14 +354,14 @@
             <li class="gallery__col">
               <div class="gallery__shot">
                 <img
-                  src="/images/gallery-1.png"
+                  src="/images/gallery-1.webp"
                   alt="DJ Olyaidis в чёрном костюме с микрофоном"
                   loading="lazy"
                 />
               </div>
               <div class="gallery__shot">
                 <img
-                  src="/images/gallery-2.png"
+                  src="/images/gallery-2.webp"
                   alt="DJ за пультом в синем свете, на переднем плане свечи"
                   loading="lazy"
                 />
@@ -359,14 +370,14 @@
             <li class="gallery__col">
               <div class="gallery__shot">
                 <img
-                  src="/images/gallery-3.png"
+                  src="/images/gallery-3.webp"
                   alt="DJ Olyaidis в белых очках за пультом"
                   loading="lazy"
                 />
               </div>
               <div class="gallery__shot">
                 <img
-                  src="/images/gallery-4.png"
+                  src="/images/gallery-4.webp"
                   alt="Руки над пультом в луче прожектора"
                   loading="lazy"
                 />
@@ -375,14 +386,14 @@
             <li class="gallery__col">
               <div class="gallery__shot">
                 <img
-                  src="/images/gallery-5.png"
+                  src="/images/gallery-5.webp"
                   alt="DJ Olyaidis на красном фоне с контроллером"
                   loading="lazy"
                 />
               </div>
               <div class="gallery__shot">
                 <img
-                  src="/images/gallery-6.png"
+                  src="/images/gallery-6.webp"
                   alt="Крупный план DJ Olyaidis в белых очках"
                   loading="lazy"
                 />
@@ -391,14 +402,14 @@
             <li class="gallery__col">
               <div class="gallery__shot gallery__shot--hands">
                 <img
-                  src="/images/gallery-7.png"
+                  src="/images/gallery-7.webp"
                   alt="Руки на диджейском пульте"
                   loading="lazy"
                 />
               </div>
               <div class="gallery__shot">
                 <img
-                  src="/images/gallery-8.png"
+                  src="/images/gallery-8.webp"
                   alt="DJ Olyaidis за пультом Pioneer"
                   loading="lazy"
                 />
@@ -407,14 +418,14 @@
             <li class="gallery__col">
               <div class="gallery__shot">
                 <img
-                  src="/images/gallery-9.png"
+                  src="/images/gallery-9.webp"
                   alt="DJ Olyaidis сверху на светлом фоне"
                   loading="lazy"
                 />
               </div>
               <div class="gallery__shot gallery__shot--profile">
                 <img
-                  src="/images/gallery-10.png"
+                  src="/images/gallery-10.webp"
                   alt="DJ Olyaidis в профиль за пультом"
                   loading="lazy"
                 />
@@ -458,20 +469,20 @@
                 </a>
 
                 <a
-                  class="contacts__write"
+                  class="hero__btn hero__btn--solid contacts__write"
                   href="https://t.me/olyaidis"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <span>Связаться в Telegram</span>
-                  <span aria-hidden="true">↗</span>
+                  <span class="hero__btn-label">Связаться в Telegram</span>
+                  <span class="hero__arrow" aria-hidden="true">↗</span>
                 </a>
               </div>
             </div>
 
             <div class="contacts__photo">
               <img
-                src="/images/gallery-3.png"
+                src="/images/gallery-3.webp"
                 alt="DJ Olyaidis в белых очках за пультом"
               />
             </div>
@@ -515,6 +526,8 @@
       <img src="/images/arrow-line.svg" alt="" />
     </button>
 
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
