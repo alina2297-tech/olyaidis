@@ -215,7 +215,7 @@ p {
 h1 {
   font-family: var(--display);
   font-weight: 400;
-  font-size: clamp(2.75rem, 5.73vw, 6.875rem);
+  font-size: clamp(2.75rem, 82px, 6.875rem);
   line-height: 0.87;
   letter-spacing: 0.12em;
   color: var(--title);
@@ -252,7 +252,7 @@ h1 {
   font-family: var(--serif);
   font-weight: 500;
   font-style: italic;
-  font-size: clamp(1.5rem, 1.875vw, 2.25rem);
+  font-size: clamp(1.5rem, 32px, 2.25rem);
   line-height: 1.167;
 }
 
@@ -480,7 +480,7 @@ h1 {
 .catalog__title {
   color: var(--title);
   font-family: "Kaisei Decol", var(--display);
-  font-size: clamp(2.75rem, 5.73vw, 6.875rem);
+  font-size: clamp(2.75rem, 82px, 6.875rem);
   font-weight: 400;
   line-height: 1;
   letter-spacing: 0.08em;
@@ -712,7 +712,7 @@ h1 {
   flex-direction: column;
   gap: 0.5rem;
   color: var(--note);
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   line-height: normal;
 }
 
@@ -908,9 +908,8 @@ h1 {
 
 .contacts__body {
   display: grid;
-  grid-template-columns: minmax(0, 548fr) minmax(0, 602fr);
+  grid-template-columns: 1fr 1fr;
   align-items: start;
-  column-gap: clamp(1.5rem, 8.472vw, 7.625rem);
   width: 100%;
 }
 
@@ -925,7 +924,7 @@ h1 {
 .contacts__title {
   color: var(--title);
   font-family: var(--display);
-  font-size: clamp(2.75rem, 5.73vw, 6.875rem);
+  font-size: clamp(2.75rem, 82px, 6.875rem);
   font-weight: 400;
   line-height: 1;
   letter-spacing: 0.08em;
@@ -965,7 +964,7 @@ h1 {
 
 .contacts__phone {
   color: var(--title);
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   font-weight: 400;
   line-height: 2.6875rem;
   text-decoration: none;
@@ -1013,7 +1012,7 @@ h1 {
 
 .contacts__handle {
   color: var(--title);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 400;
   line-height: 2rem;
 }
@@ -1067,7 +1066,7 @@ h1 {
 
 .footer__brand {
   color: var(--text);
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   font-weight: 400;
   line-height: 2.5rem;
   text-decoration: none;
@@ -1091,7 +1090,7 @@ h1 {
 .footer__aside p {
   display: block;
   color: var(--text);
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 1.75rem;
   text-decoration: none;
@@ -1263,6 +1262,21 @@ html.is-motion .footer__row {
   .equipment__book,
   .to-top {
     transition: none;
+  }
+}
+
+@media (min-width: 1921px) {
+  .hero__frame {
+    width: 100%;
+  }
+
+  .hero__visual {
+    width: calc(1920px * 0.552083);
+  }
+
+  .header,
+  .hero__panel {
+    padding-left: calc((100% - 1440px) / 2 + clamp(1.5rem, 5.833vw, 5.25rem));
   }
 }
 
@@ -1570,6 +1584,10 @@ html.is-motion .footer__row {
     width: 100%;
   }
 
+  .catalog__title {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+
   .catalog__lead {
     font-size: 1.25rem;
     line-height: 1.75rem;
@@ -1657,12 +1675,8 @@ html.is-motion .footer__row {
     aspect-ratio: 242 / 396;
   }
 
-  .gallery__col:nth-child(5) .gallery__shot:nth-child(1) {
-    aspect-ratio: 241.6 / 373.339;
-  }
-
-  .gallery__col:nth-child(5) .gallery__shot:nth-child(2) {
-    aspect-ratio: 241.6 / 173.071;
+  .gallery__grid > li:last-child {
+    display: none;
   }
 
   .contacts__frame {

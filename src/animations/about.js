@@ -83,10 +83,13 @@ export function setAboutParallax(distance) {
 }
 
 export function killAboutParallax() {
+  const active = Boolean(tween);
   tween?.scrollTrigger?.kill();
   tween?.kill();
   tween = null;
-  if (settled && photo) window.gsap.set(photo, { y: 0 });
+  if (!photo) return;
+  photo.style.willChange = "auto";
+  if (active && settled) window.gsap.set(photo, { y: 0 });
 }
 
 function mount(distance) {
@@ -94,10 +97,11 @@ function mount(distance) {
   killAboutParallax();
   const epoch = epochId;
   const shift = isDesktop() ? distance : Math.min(distance, 12);
+  // Уже пройденный скролл не должен сдвигать фото, которое только что появилось.
+  const anchor = window.scrollY;
 
   track(() => {
     if (!epochIs(epoch) || !photo) return;
-    photo.style.willChange = "transform";
     tween = window.gsap.fromTo(
       photo,
       { y: 0 },
@@ -105,9 +109,10 @@ function mount(distance) {
         y: shift,
         ease: "none",
         overwrite: "auto",
+        immediateRender: false,
         scrollTrigger: {
           trigger: ".about",
-          start: "top bottom",
+          start: anchor,
           end: "bottom top",
           scrub: 1,
           onToggle(self) {
