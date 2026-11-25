@@ -26,6 +26,7 @@ export function initAbout(epoch) {
   });
   const facts = window.gsap.utils.toArray(".about__facts li");
   const genres = window.gsap.utils.toArray(".about__genres li");
+  const music = document.querySelector(".about__music");
   const button = document.querySelector(".about__btn");
   const ornament = document.querySelector(".about__ornament");
   const showOrnament = ornament && getComputedStyle(ornament).display !== "none";
@@ -54,6 +55,7 @@ export function initAbout(epoch) {
   if (showOrnament) steps.push(ornament);
   facts.forEach((item) => steps.push(item));
   genres.forEach((item) => steps.push(item));
+  if (music) steps.push(music);
   if (button) steps.push(button);
 
   steps.forEach((element) => {

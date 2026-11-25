@@ -425,13 +425,88 @@ h1 {
   gap: 1.25rem;
 }
 
-.about__facts strong,
-.about__genres {
+.about__facts strong {
   font-weight: 700;
 }
 
 .about__genres {
-  gap: 0.75rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.about__genres li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  max-width: 100%;
+  color: var(--title);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+.about__genres li > div,
+.about__genres li:not(:has(> div)) {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  background: #3a3634;
+  border-radius: 4px;
+}
+
+.about__music {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.875rem;
+  width: 100%;
+}
+
+.about__music-label {
+  color: var(--note);
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.12em;
+}
+
+.about__music-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.about__music-link {
+  display: inline-flex;
+  align-items: center;
+  height: 2.25rem;
+  padding: 0 0.875rem;
+  border: 1px solid rgb(152 144 139 / 0.45);
+  border-radius: 2px;
+  color: var(--text);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition:
+    border-color 0.35s ease,
+    color 0.35s ease,
+    background-color 0.35s ease;
+}
+
+.about__music-link:hover,
+.about__music-link:focus-visible {
+  border-color: var(--title);
+  background: rgb(242 237 236 / 0.06);
+  color: var(--title);
+}
+
+.about__music-link:focus-visible {
+  outline: 1px solid var(--title);
+  outline-offset: 3px;
 }
 
 .hero__btn.about__btn {
@@ -463,7 +538,7 @@ h1 {
 
 .catalog__main {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(13.75rem, 25.5rem);
+  grid-template-columns: 1fr 1fr;
   align-items: start;
   column-gap: clamp(1.5rem, 10.556vw, 9.5rem);
   margin-top: 2.5rem;
@@ -538,10 +613,10 @@ h1 {
 .catalog__stage {
   position: relative;
   justify-self: end;
+  align-self: stretch;
   width: 100%;
-  aspect-ratio: 408 / 546;
+  max-width: 408px;
   overflow: hidden;
-  /* border: 1px solid rgb(242 237 236 / 0.3); */
   border-radius: 12px;
   background: #000;
 }
@@ -551,7 +626,7 @@ h1 {
   left: -30.882%;
   top: -37.729%;
   width: 181.373%;
-  height: 135.531%;
+  height: calc(100% + 37.729%);
 }
 
 .catalog__shot img {
@@ -559,12 +634,8 @@ h1 {
   height: 100%;
   max-width: none;
   object-fit: cover;
-}
+  transform: translate(-30px, 150px);
 
-.catalog__shade {
-  position: absolute;
-  inset: 0;
-  background: rgb(0 0 0 / 0.25);
 }
 
 .catalog__play {
@@ -614,7 +685,6 @@ h1 {
 }
 
 .catalog__stage.is-playing .catalog__shot,
-.catalog__stage.is-playing .catalog__shade,
 .catalog__stage.is-playing .catalog__play {
   display: none;
 }
@@ -1182,6 +1252,7 @@ html.is-motion .about__photo,
 html.is-motion .about__ornament,
 html.is-motion .about__facts li,
 html.is-motion .about__genres li,
+html.is-motion .about__music,
 html.is-motion .about__btn,
 html.is-motion .catalog__ornament,
 html.is-motion .catalog__label,
@@ -1255,6 +1326,7 @@ html.is-motion .footer__row {
 
 @media (prefers-reduced-motion: reduce) {
   .header__link::after,
+  .about__music-link,
   .hero__btn::before,
   .hero__btn-label,
   .hero__arrow,
@@ -1281,6 +1353,9 @@ html.is-motion .footer__row {
 }
 
 @media (max-width: 1200px) {
+  h1 {
+    font-size: 64px;
+  }
   .services {
     display: grid;
     grid-template-columns: auto auto;
@@ -1305,6 +1380,10 @@ html.is-motion .footer__row {
 
   .equipment__row {
     flex-wrap: wrap;
+  }
+
+  .catalog__title, .contacts__title {
+    font-size: 54px;
   }
 }
 
@@ -1550,18 +1629,31 @@ html.is-motion .footer__row {
     flex: 0 0 auto;
   }
 
-  .about__facts,
-  .about__genres {
+  .about__facts {
     font-size: 0.9375rem;
     line-height: 1.5rem;
-  }
-
-  .about__facts {
     gap: 1rem;
   }
 
   .about__genres {
     gap: 0.5rem;
+  }
+
+  .about__genres li,
+  .about__genres li > div {
+    font-size: 0.75rem;
+  }
+
+  .about__genres li:first-child {
+    justify-content: center;
+  }
+
+  .about__music {
+    align-items: center;
+  }
+
+  .about__music-list {
+    justify-content: center;
   }
 
   .hero__btn.about__btn {
@@ -1595,7 +1687,10 @@ html.is-motion .footer__row {
 
   .catalog__stage {
     justify-self: stretch;
+    align-self: start;
+    width: 100%;
     max-width: 25.5rem;
+    aspect-ratio: 408 / 546;
   }
 
   .catalog__price {
